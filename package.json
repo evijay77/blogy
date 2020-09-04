@@ -1,0 +1,60 @@
+{
+  "name": "blogy",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "client-build": "vue-cli-service build",
+    "client-dev": "vue-cli-service serve",
+    "client-lint": "vue-cli-service lint",
+    "eslint:fix": "eslint --fix -c ./.eslintrc.js ./",
+    "server-dev": "nodemon -r dotenv/config server/app.js",
+    "server-start": "node -r dotenv/config server/app.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.16.0",
+    "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.28",
+    "nodemon": "^2.0.4",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-router": "^4.4.6",
+    "@vue/cli-plugin-vuex": "^4.5.2",
+    "@vue/cli-service": "~4.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.3",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
