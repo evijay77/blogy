@@ -72,9 +72,12 @@
             if (response.status === 200) {
             
               console.log("Login success");
-              
+              console.log(response.data);
                 this.$store.dispatch("login", {
                 authToken: response.data.token,
+                name : response.data.users.name,
+                email : response.data.users.email,
+                avatar : response.data.users.avatar
               });
                
                 const some = this.$store.getters["getAuthToken"];

@@ -24,11 +24,49 @@
 </template>
 <script>
 import Header from "../components/Header";
-
+import axios from "axios";
   export default {
     name: "post",
+    data() {
+      return {
+          title: '',
+          content: ''
+      }
+    },
     components: {
     Header
+  },
+  methods: {
+    post(){
+      if(this.title){
+         const token = localStorage.getItem('token');
+           console.log(token);
+         axios({
+          method: "post",
+          url: `${process.env.VUE_APP_SEVER_URL}/api/post`,
+          data: {
+            title: this.title,
+            mdContent: this.content,
+            userId: "123"
+          },
+          headers: {
+            authorization: `${token}`
+          }
+        })
+          .then(response => {
+            if (response.status === 200) {
+            
+              console.log("Login success");
+              console.log(response.data);
+              this.$router.push('/');
+            }
+            
+          })
+          .catch(error => {
+            console.log(error);
+          });
+    }
+  }
   }
   }
 </script>

@@ -12,6 +12,7 @@ const login = async function (req, res) {
           if(err) throw err;
           res.status(200).json({
             message: "Correct",
+            users : user,
             token: token
           })
         })

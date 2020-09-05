@@ -14,10 +14,10 @@
           <b-nav-item-dropdown right>
           <!-- Using 'button-content' slot -->
           <template v-slot:button-content>
-            <em><b-avatar variant="info"></b-avatar></em>
+            <em><b-avatar variant="info" :src="avatar"></b-avatar></em>
           </template>
           <b-list-group-item class="d-flex align-items-center">
-          <span class="mr-auto">Vijay</span>
+          <span class="mr-auto">{{username}}</span>
           <b-badge>9</b-badge>
         </b-list-group-item>
           <b-dropdown-item href="/profile">Profile</b-dropdown-item>
@@ -30,12 +30,27 @@
 </template>
 <script>
 	export default {
+    data() {
+      return {
+        users: ""
+      }
+    },
 		computed: {
 			isAuthenticated() {
 			const token = this.$store.getters["getAuthToken"];
 			console.log(token);
 			return !!token;
-		}
+		},
+    username() {
+      const users = this.$store.getters["getUser"];
+      console.log(users);
+      return users.name;
+    },
+    avatar() {
+      const users = this.$store.getters["getUser"];
+
+      return users.avatar;
+    }
 		},
 		methods: {
 			logout() {
