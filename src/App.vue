@@ -7,7 +7,21 @@
     <router-view/>
   </div>
 </template>
-<style lang="sass">
-#app
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-</style>
+<script>
+
+export default {
+	name: "app",
+	
+	created() {
+		const user = JSON.parse(localStorage.getItem("user"));
+		if (user) {
+			this.$store.dispatch("login", {
+				authToken: user.authToken,
+				name: user.name,
+				email: user.email,
+				avatar: user.avatar
+			});
+		}
+	}
+};
+</script>

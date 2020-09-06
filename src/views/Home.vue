@@ -2,36 +2,46 @@
   <div class="home">
     <Header/>
   <div class="container">
-    <b-card :title="username.name" :sub-title="username.email">
+    <div v-for="d in data" :key="d.title">
+    <b-card class="card" :title="username.name" :sub-title="username.email">
             <b-avatar variant="primary" text="BV"></b-avatar>
-
     <b-card-text>
-      Some quick example text to build on the <em>card title</em> and make up the bulk of the card's
-      content.
-    
-    
+      <em>{{d.title}}</em>
     </b-card-text>
-
-    <b-card-text>A second paragraph of text in the card.</b-card-text>
-
+     <input type="text" :value="d.userId"/>
+    <b-card-text>{{d.mdContent}}</b-card-text>
     <a href="#" class="card-link">Card link</a>
     <b-link href="#" class="card-link">Another link</b-link>
   </b-card>
+</div>
   </div>
 </div>
 </template>
-<style lang="sass">
-  .container
-    margin-top: 10px
-    width: 20%
-</style>
 <script>
 import Header from "../components/Header";
+import axios from "axios";
 
 export default {
   name: "home",
+  data(){
+    return{
+      data: "",
+      userid: ""
+    }
+  },
   components: {
     Header
+  },
+  mounted() {
+      axios
+        .get(`${process.env.VUE_APP_SEVER_URL}/api/getPost`)
+        .then(response =>{
+          this.data = response.data;
+        });
+      axios.get(`${process.env.VUE_APP_SEVER_URL}/api/getPost`)
+        .then(response =>{
+          console.log(response.data);
+        })
   },
   computed: {
     username() {
@@ -41,10 +51,8 @@ export default {
     },
     avatar() {
       const users = this.$store.getters["getUser"];
-
       return users.avatar;
     }
     }
 };
-
 </script>

@@ -5,8 +5,8 @@
    <b-navbar-brand href="/"><img style="width: 30px" src="./../assets/logo.png"> Blogy</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
   </b-navbar>
-  <b-container>
-    <b-card id="loginPanel"  style="max-width: 30rem;" class="mt-3">
+  <b-container id="loginPanel">
+    <b-card style="max-width: 30rem;" class="mt-3">
       <img style="width: 40px;" src="./../assets/logo.png">
     <h3 class="text-center" style="color:#17A2B8; margin-bottom: 30px">Welcome Blogers!</h3>
 
@@ -41,9 +41,9 @@
       <b-button style="width: 100%;" type="submit" variant="info" v-on:click="login()">Login</b-button>
 <!--      </b-form>
  -->    
-    <h6>Forgot password? <a href="#">click</a></h6>
   </div>
   </b-card>
+    <h6>You are not yet register? <a href="/register">click</a></h6>
 
 </b-container>
 </div>
@@ -93,24 +93,3 @@
     }
   }
 </script>
-<style lang="sass">
-  #loginPanel
-    text-align: center
-    width: 30%
-    margin-left: 35%
-    background: #ecf0f1
-   
-  #input-group-1, #input-group-2
-    text-align: left
-    font-style: bold
-    
-  h6
-    margin-top: 10px
-
-  @media only screen and (max-width: 600px)
-    #loginPanel
-    text-align: center
-    width: 100%
-    margin-left: 0%
-  
-</style>

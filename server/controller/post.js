@@ -14,4 +14,10 @@ const post = async (req, res)=>{
         })
       } 
 }
-module.exports = post;
+
+const getPost = async (req, res)=>{
+   const data = await models.Post.find();
+    res.status(200).json(data);
+
+}
+module.exports = {post, getPost};

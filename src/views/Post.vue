@@ -33,6 +33,20 @@ import axios from "axios";
           content: ''
       }
     },
+      beforeRouteEnter(to, from, next) {
+    next(vm => {
+      const userId = vm.$store.getters["getAuthToken"];
+
+      if (!userId) {
+        vm.$router.push({
+          path: "/login",
+          query: {
+            redirect: "/post"
+          }
+        });
+      }
+    });
+  },
     components: {
     Header
   },
@@ -70,8 +84,3 @@ import axios from "axios";
   }
   }
 </script>
-<style lang="sass">
-  .container
-    margin-top: 10px
-    width: 50%
-</style>

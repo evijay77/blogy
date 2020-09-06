@@ -11,5 +11,6 @@ router.post('/api/login', controller.login);
 router.post('/api/signup', controller.signup);
 // User post content
 router.post('/api/post', [auth.authenticate, auth.permit("USER")], controller.post);
+router.get('/api/getPost', controller.getPost);
 
 module.exports = router;
