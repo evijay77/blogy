@@ -8,10 +8,14 @@
   </div>
 </template>
 <script>
+import NProgress from "nprogress";
 
 export default {
 	name: "app",
-	
+	mounted(){
+		NProgress.inc();
+
+	},
 	created() {
 		const user = JSON.parse(localStorage.getItem("user"));
 		if (user) {

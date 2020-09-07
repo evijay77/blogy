@@ -8,7 +8,7 @@
   <b-container id="loginPanel">
     <b-card style="max-width: 30rem;" class="mt-3">
       <img style="width: 40px;" src="./../assets/logo.png">
-    <h3 class="text-center" style="color:#17A2B8; margin-bottom: 30px">Welcome Blogers!</h3>
+    <h3 class="text-center" style="color:#17A2B8; margin-bottom: 10px">Welcome Blogers!</h3><hr/>
 
     <div>
 <!--      <b-form @submit="login()">
