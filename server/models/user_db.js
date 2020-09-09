@@ -21,6 +21,14 @@ var userSchema = new Schema({
     userType: { 
         type : String,
         enum : ["ADMIN", "USER"]
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now
     }
 });
  

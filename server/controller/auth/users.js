@@ -29,4 +29,9 @@ const login = async function (req, res) {
   }
 }
 
-module.exports = login;
+const getUsers = async (req, res)=>{
+   const data = await models.User.find();
+    res.status(200).json(data);
+}
+
+module.exports = {login, getUsers};

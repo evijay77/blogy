@@ -1,12 +1,14 @@
 <template>
-  <div class="profile">
-  <Header/>
-  <div class="container">
-    <b-avatar src="https://placekitten.com/300/300" size="6rem"></b-avatar><hr>
-    <h3 style="color:#17A2B8">{{username.name}}</h3>
-  </div>
-
-  </div>
+    <div class="profile">
+        <Header />
+        <div class="container">
+            <div v-if="avatar">
+                <b-avatar :src="avatar" size="6rem"></b-avatar>
+                <hr />
+            </div>
+            <h3 style="color: #17a2b8;">{{username.name}}</h3>
+        </div>
+    </div>
 </template>
 <style lang="sass">
   .container
@@ -42,7 +44,6 @@ export default{
     },
     avatar() {
       const users = this.$store.getters["getUser"];
-
       return users.avatar;
     }
     }

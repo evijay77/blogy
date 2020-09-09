@@ -18,6 +18,5 @@ const post = async (req, res)=>{
 const getPost = async (req, res)=>{
    const data = await models.Post.find();
     res.status(200).json(data);
-
 }
 module.exports = {post, getPost};
